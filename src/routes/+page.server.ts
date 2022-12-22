@@ -1,4 +1,4 @@
-import { getList } from "../lib/microcms";
+import { getList } from "$lib/microcms";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {

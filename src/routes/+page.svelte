@@ -2,7 +2,7 @@
   import type { PageData } from './$types';
   import Paper, { Title, Subtitle, Content } from '@smui/paper';
   import Button, { Label } from '@smui/button';
-  import { formatTime } from '../lib/dayjs';
+  import { formatTime } from '$lib/dayjs';
   export let data: PageData;
 </script>
 

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
+  import { formatTime } from '$lib/dayjs';
   export let data: PageData;
 </script>
 
@@ -9,9 +10,12 @@
 </svelte:head>
 
 <section>
-  <h1>{data.title}</h1>
-  <img src={data.eyecatch?.url} alt="" />
-  <div class="article_conatiner">{@html data.content}</div>
+  <h2 class="title">{data.title}</h2>
+  <h4>Published at {formatTime(data.publishedAt)}</h4>
+  <div class="article_container">
+    <img src={data.eyecatch?.url} alt="" />
+    {@html data.content}
+  </div>
 </section>
 
 <style>
@@ -21,7 +25,15 @@
     justify-content: center;
     align-items: center;
   }
-  .article_conatiner {
+  .article_container {
     width: 100%;
+  }
+  @media screen and (min-width: 1080px) {
+    .article_container {
+      width: 1000px;
+    }
+  }
+  .title {
+    margin-bottom: 0;
   }
 </style>
