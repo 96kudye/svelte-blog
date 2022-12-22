@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>ブログ</title>
+	<title>{data.title} | Silent Foreign Perspective</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 

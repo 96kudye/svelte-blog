@@ -5,8 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Silent Foreign Perspective</title>
 </svelte:head>
 
 <section>
@@ -16,7 +15,9 @@
 				<Paper>
 					<Title>{content.title}</Title>
 					<Subtitle>{content.createdAt}</Subtitle>
-					<Content>Paper is used to build an elevated surface.</Content>
+					<Content>
+                        Paper is used to build an elevated
+						surface.asdfvilagsbdviujagbhwl;siergudfbklasjdhvbfckl.asjdgbfikjgbasikldfbhjvil;</Content>
 				</Paper>
 			</a>
 		{/each}
@@ -29,6 +30,16 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
+	}
+    .link_article {
+        display: inline-block;
+        width: 100%;
+    }
+	@media screen and (min-width: 720px) {
+		.link_article {
+			width: 700px;
+		}
 	}
 	.paper-container .link_article {
 		color: inherit;
