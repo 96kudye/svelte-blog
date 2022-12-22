@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import Paper, { Title, Subtitle, Content } from '@smui/paper';
+	import Button, { Label } from '@smui/button';
 	export let data: PageData;
 </script>
 
@@ -15,9 +16,17 @@
 				<Paper>
 					<Title>{content.title}</Title>
 					<Subtitle>{content.createdAt}</Subtitle>
-					<Content>
-                        Paper is used to build an elevated
-						surface.asdfvilagsbdviujagbhwl;siergudfbklasjdhvbfckl.asjdgbfikjgbasikldfbhjvil;</Content>
+					{#if content.categories}
+						<Content>
+                            {#each content.categories as category}
+							<Button>
+								<Label>
+									{category.name}
+								</Label>
+							</Button>
+                            {/each}
+						</Content>
+					{/if}
 				</Paper>
 			</a>
 		{/each}
@@ -31,16 +40,16 @@
 		justify-content: center;
 		align-items: center;
 	}
-    .link_article {
-        display: block;
-    }
+	.link_article {
+		display: block;
+	}
 	.paper-container .link_article {
 		color: inherit;
 		text-decoration: none;
 	}
-    .paper-container {
-        width: 100%;
-    }
+	.paper-container {
+		width: 100%;
+	}
 	@media screen and (min-width: 720px) {
 		.paper-container {
 			width: 700px;

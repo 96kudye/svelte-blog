@@ -14,12 +14,21 @@ export type Blog = {
     title: string;
     content: string;
     eyecatch?: MicroCMSImage;
+    categories?: Category[];
 };
 export type BlogResponse = {
     totalCount: number;
     offset: number;
     limit: number;
     contents: Blog[];
+};
+export type Category = {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    revisedAt: string;
+    name: string;
 };
 
 export const getList = async (queries?: MicroCMSQueries) => {
