@@ -13,7 +13,6 @@
   <h2 class="title">{data.title}</h2>
   <h4>Published at {formatTime(data.publishedAt)}</h4>
   <div class="article_container">
-    <img src={data.eyecatch?.url} alt="" />
     {@html data.content}
   </div>
 </section>

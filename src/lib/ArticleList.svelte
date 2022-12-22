@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Blog } from './$types';
+  import type { Article } from './$types';
   import Paper, { Title, Subtitle, Content } from '@smui/paper';
   import Button, { Label } from '@smui/button';
   import { formatTime } from '$lib/dayjs';
-  export let data: Blog[];
+  export let data: Article[];
 </script>
 
 <div class="paper-container">
@@ -12,14 +12,12 @@
       <Paper>
         <Title>{content.title}</Title>
         <Subtitle>{formatTime(content.publishedAt)}</Subtitle>
-        {#if content.categories}
+        {#if content.tags}
           <Content>
-            {#each content.categories as category}
-              <Button>
-                <Label>
-                  {category.name}
-                </Label>
-              </Button>
+            {#each content.tags as tag}
+              <a href="/tag/{tag.id}">
+                <Button><Label>{tag.name}</Label></Button>
+              </a>
             {/each}
           </Content>
         {/if}

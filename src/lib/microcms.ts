@@ -5,7 +5,7 @@ const client = createClient({
   apiKey: MICROCMS_API_KEY,
 });
 
-export type Blog = {
+export type Article = {
   id: string;
   createdAt: string;
   updatedAt: string;
@@ -13,16 +13,15 @@ export type Blog = {
   revisedAt: string;
   title: string;
   content: string;
-  eyecatch?: MicroCMSImage;
-  categories?: Category[];
+  tags?: Tag[];
 };
 export type BlogResponse = {
   totalCount: number;
   offset: number;
   limit: number;
-  contents: Blog[];
+  contents: Article[];
 };
-export type Category = {
+export type Tag = {
   id: string;
   createdAt: string;
   updatedAt: string;
@@ -31,16 +30,24 @@ export type Category = {
   name: string;
 };
 
-export const getList = async (queries?: MicroCMSQueries) => {
-  return await client.get<BlogResponse>({ endpoint: "blogs", queries });
+export const getArticleList = async (queries?: MicroCMSQueries) => {
+  return await client.get<BlogResponse>({ endpoint: "articles", queries });
 };
-export const getDetail = async (
+
+export const getArticle = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  return await client.getListDetail<Blog>({
-    endpoint: "blogs",
+  return await client.getListDetail<Article>({
+    endpoint: "articles",
     contentId,
     queries,
+  });
+};
+
+export const getTag = async (contentId: string) => {
+  return await client.getListDetail<Tag>({
+    endpoint: "tags",
+    contentId,
   });
 };
