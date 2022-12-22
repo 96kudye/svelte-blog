@@ -30,19 +30,20 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		width: 100%;
 	}
     .link_article {
-        display: inline-block;
-        width: 100%;
+        display: block;
     }
-	@media screen and (min-width: 720px) {
-		.link_article {
-			width: 700px;
-		}
-	}
 	.paper-container .link_article {
 		color: inherit;
 		text-decoration: none;
+	}
+    .paper-container {
+        width: 100%;
+    }
+	@media screen and (min-width: 720px) {
+		.paper-container {
+			width: 700px;
+		}
 	}
 </style>
