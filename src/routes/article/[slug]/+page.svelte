@@ -10,7 +10,7 @@
 </svelte:head>
 
 <section>
-  <h2 class="title">{data.title}</h2>
+  <h1 class="title">{data.title}</h1>
   <h4>Published at {formatTime(data.publishedAt)}</h4>
   <div class="article_container">
     {@html data.content}
