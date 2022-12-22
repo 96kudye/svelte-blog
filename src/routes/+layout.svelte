@@ -8,7 +8,7 @@
 <style>
   .header_container {
     text-align: center;
-    margin: 60px 0 60px;
+    margin: 30px 0 30px;
   }
   .header {
     color: inherit;
