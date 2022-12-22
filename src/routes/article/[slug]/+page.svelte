@@ -25,7 +25,7 @@
     align-items: center;
   }
   .article_container {
-    width: 100%;
+    width: 92.6%;
   }
   @media screen and (min-width: 1080px) {
     .article_container {

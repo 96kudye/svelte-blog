@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Article } from './$types';
+  import type { Article } from './microcms';
   import Paper, { Title, Subtitle, Content } from '@smui/paper';
   import Button, { Label } from '@smui/button';
   import { formatTime } from '$lib/dayjs';
@@ -33,6 +33,7 @@
   }
   .link_article {
     display: block;
+    margin-bottom: 15px;
   }
   .paper-container .link_article {
     color: inherit;
