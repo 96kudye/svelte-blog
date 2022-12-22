@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import Paper, { Title, Subtitle, Content } from '@smui/paper';
 	import Button, { Label } from '@smui/button';
+    import { formatTime } from "../lib/dayjs";
 	export let data: PageData;
 </script>
 
@@ -15,7 +16,7 @@
 			<a href="/article/{content.id}" class="link_article">
 				<Paper>
 					<Title>{content.title}</Title>
-					<Subtitle>{content.createdAt}</Subtitle>
+					<Subtitle>{formatTime(content.publishedAt)}</Subtitle>
 					{#if content.categories}
 						<Content>
                             {#each content.categories as category}

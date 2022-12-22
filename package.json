@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"dayjs": "^1.11.7",
 		"microcms-js-sdk": "^2.3.2"
 	}
 }

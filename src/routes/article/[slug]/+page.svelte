@@ -11,7 +11,7 @@
 <section>
 	<h1>{data.title}</h1>
 	<img src={data.eyecatch?.url} alt="" />
-	<div>{@html data.content}</div>
+	<div class="article_conatiner">{@html data.content}</div>
 </section>
 
 <style>
@@ -21,4 +21,7 @@
 		justify-content: center;
 		align-items: center;
 	}
+    .article_conatiner {
+        width: 100%;
+    }
 </style>
