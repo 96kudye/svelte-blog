@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <title>Silent Foreign Perspective</title>
+  <title>Tag: {data.tag.name} | Silent Foreign Perspective</title>
 </svelte:head>
 
 <section>
