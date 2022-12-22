@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import Paper, { Title, Subtitle, Content } from '@smui/paper';
 	export let data: PageData;
 </script>
 
@@ -9,11 +10,17 @@
 </svelte:head>
 
 <section>
-	<ul>
+	<div class="paper-container">
 		{#each data.contents as content}
-			<li><a href="/article/{content.id}">{content.title}</a></li>
+			<a href="/article/{content.id}" class="link_article">
+				<Paper>
+					<Title>{content.title}</Title>
+					<Subtitle>{content.createdAt}</Subtitle>
+					<Content>Paper is used to build an elevated surface.</Content>
+				</Paper>
+			</a>
 		{/each}
-	</ul>
+	</div>
 </section>
 
 <style>
@@ -22,5 +29,9 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+	.paper-container .link_article {
+		color: inherit;
+		text-decoration: none;
 	}
 </style>
