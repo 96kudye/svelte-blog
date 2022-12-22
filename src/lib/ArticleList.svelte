@@ -15,7 +15,7 @@
         {#if content.tags}
           <Content>
             {#each content.tags as tag}
-              <a href="/tag/{tag.id}">
+              <a href="/tag/{tag.id}" class="link_tag">
                 <Button><Label>{tag.name}</Label></Button>
               </a>
             {/each}
@@ -27,6 +27,10 @@
 </div>
 
 <style>
+  .link_tag {
+    color: inherit;
+    text-decoration: none;
+  }
   .link_article {
     display: block;
   }
