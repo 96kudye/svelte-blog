@@ -2,6 +2,9 @@
   import type { PageData } from './$types';
   import { formatTime } from '$lib/dayjs';
   export let data: PageData;
+  let html = data.content
+    .replaceAll('<blockquote>', '<blockquote><p>')
+    .replaceAll('</blockquote>', '</p></blockquote>');
 </script>
 
 <svelte:head>
@@ -13,7 +16,7 @@
   <h1 class="title">{data.title}</h1>
   <h4>Published at {formatTime(data.publishedAt)}</h4>
   <div class="article_container">
-    {@html data.content}
+    {@html html}
   </div>
 </section>
 

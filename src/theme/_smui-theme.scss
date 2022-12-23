@@ -69,7 +69,14 @@ img {
   height: auto;
 }
 
-img.dummy {
-  width: 0 !important;
-  height: 0 !important;
+blockquote {
+  position: relative;
+  border-left: 3px solid #77754e;
+  padding-left: 3px;
+  margin-left: 3px;
+}
+
+blockquote p {
+  position: relative;
+  padding-left: 12px;
 }
