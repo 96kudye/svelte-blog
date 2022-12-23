@@ -63,3 +63,13 @@ b,
 strong {
   font-weight: bold;
 }
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+img.dummy {
+  width: 0 !important;
+  height: 0 !important;
+}
