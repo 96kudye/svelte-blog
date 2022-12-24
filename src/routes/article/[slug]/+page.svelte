@@ -9,8 +9,8 @@
 </script>
 
 <svelte:head>
+  <meta name="twitter:title" content={data.title} />
   <title>{data.title} | Silent Foreign Perspective</title>
-  <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
 <section>

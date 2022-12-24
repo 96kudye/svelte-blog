@@ -5,6 +5,7 @@
 </script>
 
 <svelte:head>
+  <meta name="twitter:title" content="Tag: {data.tag.name} | Silent Foreign Perspective" />
   <title>Tag: {data.tag.name} | Silent Foreign Perspective</title>
 </svelte:head>
 
