@@ -5,7 +5,9 @@
   export let data: PageData;
   let html = data.content
     .replaceAll('<blockquote>', '<blockquote><p>')
-    .replaceAll('</blockquote>', '</p></blockquote>');
+    .replaceAll('</blockquote>', '</p></blockquote>')
+    .replaceAll('<iframe', '<div class="video"><iframe')
+    .replaceAll('</iframe>', '</iframe></div>');
 </script>
 
 <svelte:head>
