@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Article } from './microcms';
   import Paper, { Title, Subtitle, Content } from '@smui/paper';
-  import Button, { Label } from '@smui/button';
+  import Tag from './Tag.svelte';
   import { formatTime } from '$lib/dayjs';
   export let data: Article[];
 </script>
@@ -15,9 +15,7 @@
         {#if content.tags}
           <Content>
             {#each content.tags as tag}
-              <a href="/tag/{tag.id}" class="link_tag">
-                <Button><Label>{tag.name}</Label></Button>
-              </a>
+              <Tag data={tag} />
             {/each}
           </Content>
         {/if}
@@ -27,10 +25,6 @@
 </div>
 
 <style>
-  .link_tag {
-    color: inherit;
-    text-decoration: none;
-  }
   .link_article {
     display: block;
     margin-bottom: 15px;

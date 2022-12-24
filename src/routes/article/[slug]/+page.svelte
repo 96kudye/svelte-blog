@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { formatTime } from '$lib/dayjs';
-  import Button, { Label } from '@smui/button';
+  import Tag from '$lib/Tag.svelte';
   export let data: PageData;
   let html = data.content
     .replaceAll('<blockquote>', '<blockquote><p>')
@@ -19,9 +19,7 @@
     {#if data.tags}
       Tags:
       {#each data.tags as tag}
-        <a href="/tag/{tag.id}" class="link_tag">
-          <Button><Label>{tag.name}</Label></Button>
-        </a>
+        <Tag data={tag} />
       {/each}
     {/if}
     <br />
