@@ -1,13 +1,10 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { formatTime } from '$lib/dayjs';
+  import { prepareHtml } from '$lib/prepareHtml';
   import Tag from '$lib/Tag.svelte';
   export let data: PageData;
-  let html = data.content
-    .replaceAll('<blockquote>', '<blockquote><p>')
-    .replaceAll('</blockquote>', '</p></blockquote>')
-    .replaceAll('<iframe', '<div class="video"><iframe')
-    .replaceAll('</iframe>', '</iframe></div>');
+  let html = prepareHtml(data.content);
 </script>
 
 <svelte:head>
