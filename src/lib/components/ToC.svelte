@@ -44,14 +44,16 @@
         </Content>
       </Drawer>
     </div>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="toc_button" on:click={() => (open = !open)}>
-      <Fab color="primary">
-        <Icon component={Svg} viewBox="2 2 20 20">
-          <path fill="currentColor" d={mdiTableOfContents} />
-        </Icon>
-      </Fab>
-    </div>
+    {#if !open}
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div class="toc_button" on:click={() => (open = !open)}>
+        <Fab color="primary">
+          <Icon component={Svg} viewBox="2 2 20 20">
+            <path fill="currentColor" d={mdiTableOfContents} />
+          </Icon>
+        </Fab>
+      </div>
+    {/if}
   {/if}
 </MediaQuery>
 
@@ -64,7 +66,8 @@
   }
 
   .modal {
-    position: absolute;
+    position: fixed;
+    top: 0;
   }
 
   .permanent {
