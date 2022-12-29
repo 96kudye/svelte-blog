@@ -23,7 +23,7 @@
   <ToC data={toc} />
 {/if}
 
-<AppContent class="app-content">
+<AppContent>
   <section>
     <h1 class="title">{data.title}</h1>
     <h4>
@@ -43,14 +43,11 @@
 </AppContent>
 
 <style>
-  .app-content {
+  section {
     flex: auto;
     overflow: auto;
     position: relative;
     flex-grow: 1;
-  }
-
-  section {
     display: flex;
     flex-direction: column;
     justify-content: center;

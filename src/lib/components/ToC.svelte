@@ -60,6 +60,7 @@
     max-width: 600px;
     overflow: hidden;
     z-index: 5;
+    perspective: 1000;
   }
 
   .modal {
