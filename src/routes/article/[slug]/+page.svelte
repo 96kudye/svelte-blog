@@ -19,7 +19,9 @@
   <title>{data.title} | Silent Foreign Perspective</title>
 </svelte:head>
 
-<ToC data={toc} />
+{#if data.toc_visible}
+  <ToC data={toc} />
+{/if}
 
 <AppContent class="app-content">
   <section>

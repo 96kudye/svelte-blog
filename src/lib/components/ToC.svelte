@@ -44,16 +44,13 @@
         </Content>
       </Drawer>
     </div>
-    {#if !open}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <div class="toc_button" on:click={() => (open = !open)}>
-        <Fab color="primary">
-          <Icon component={Svg} viewBox="2 2 20 20">
-            <path fill="currentColor" d={mdiTableOfContents} />
-          </Icon>
-        </Fab>
-      </div>
-    {/if}
+    <div class="toc_button">
+      <Fab color="primary" on:click={() => (open = !open)}>
+        <Icon component={Svg} viewBox="2 2 20 20">
+          <path fill="currentColor" d={mdiTableOfContents} />
+        </Icon>
+      </Fab>
+    </div>
   {/if}
 </MediaQuery>
 
