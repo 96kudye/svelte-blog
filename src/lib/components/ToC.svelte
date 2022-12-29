@@ -81,8 +81,8 @@
 
   .toc_button {
     position: fixed;
-    top: 0;
-    left: 0;
+    bottom: 0;
+    right: 0;
     margin: 20px;
     z-index: 10;
   }
