@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Article } from './microcms';
+  import type { Article } from '../microcms';
   import Paper, { Title, Subtitle, Content } from '@smui/paper';
   import Tag from './Tag.svelte';
   import { formatTime } from '$lib/dayjs';

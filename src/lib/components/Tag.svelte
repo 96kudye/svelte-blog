@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Tag } from './microcms';
+  import type { Tag } from '../microcms';
   import Button, { Label } from '@smui/button';
   export let data: Tag;
 </script>

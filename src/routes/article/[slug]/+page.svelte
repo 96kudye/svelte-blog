@@ -1,10 +1,14 @@
 <script lang="ts">
+  import { AppContent } from '@smui/drawer';
   import type { PageData } from './$types';
   import { formatTime } from '$lib/dayjs';
   import { prepareHtml } from '$lib/prepareHtml';
-  import Tag from '$lib/Tag.svelte';
+  import { tocFromHtml } from '$lib/tocFromHtml';
+  import Tag from '$lib/components/Tag.svelte';
+  import ToC from '$lib/components/ToC.svelte';
   export let data: PageData;
-  let html = prepareHtml(data.content);
+  const html = prepareHtml(data.content);
+  const toc = tocFromHtml(data.content);
 </script>
 
 <svelte:head>
@@ -15,24 +19,35 @@
   <title>{data.title} | Silent Foreign Perspective</title>
 </svelte:head>
 
-<section>
-  <h1 class="title">{data.title}</h1>
-  <h4>
-    {#if data.tags}
-      Tags:
-      {#each data.tags as tag}
-        <Tag data={tag} />
-      {/each}
-    {/if}
-    <br />
-    Published at {formatTime(data.publishedAt)}
-  </h4>
-  <div class="article_container">
-    {@html html}
-  </div>
-</section>
+<ToC data={toc} />
+
+<AppContent class="app-content">
+  <section>
+    <h1 class="title">{data.title}</h1>
+    <h4>
+      {#if data.tags}
+        Tags:
+        {#each data.tags as tag}
+          <Tag data={tag} />
+        {/each}
+      {/if}
+      <br />
+      Published at {formatTime(data.publishedAt)}
+    </h4>
+    <div class="article_container">
+      {@html html}
+    </div>
+  </section>
+</AppContent>
 
 <style>
+  .app-content {
+    flex: auto;
+    overflow: auto;
+    position: relative;
+    flex-grow: 1;
+  }
+
   section {
     display: flex;
     flex-direction: column;

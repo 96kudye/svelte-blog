@@ -13,6 +13,7 @@
 
 html,
 body {
+  scroll-behavior: smooth;
   background-color: theme.$surface;
   color: theme.$on-surface;
   @include typography.typography('body1');
@@ -104,4 +105,16 @@ ul {
 
 ul li {
   padding-bottom: 0.2em;
+}
+
+.toc_h1 {
+  padding-left: 0px;
+}
+
+.toc_h2 {
+  padding-left: 16px;
+}
+
+.toc_h3 {
+  padding-left: 32px;
 }
