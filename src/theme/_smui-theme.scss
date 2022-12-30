@@ -118,3 +118,14 @@ ul li {
 .toc_h3 {
   padding-left: 32px;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #1e224e;
+  border-inline: none;
+  padding: 6px 12px;
+}
