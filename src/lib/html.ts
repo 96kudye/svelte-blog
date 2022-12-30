@@ -25,6 +25,13 @@ export const prepareHtmls = (htmls: HTML[]): string => {
   $('iframe').attr('loading', 'lazy');
   $('iframe').wrap('<div class="video"></div>');
 
+  // TODO: ページ内遷移をすることは考えていない（ToCがあるため不要なはず）
+  $('a').each((_, elm) => {
+    if (!$(elm).attr('href')?.includes('http')) {
+      $(elm).attr('rel', 'external');
+    }
+  });
+
   return $('body').html() ?? '';
 }
 
