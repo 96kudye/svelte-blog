@@ -2,7 +2,7 @@
   import type { Article } from '../microcms';
   import Paper, { Title, Subtitle, Content } from '@smui/paper';
   import Tag from './Tag.svelte';
-  import { formatTime } from '$lib/dayjs';
+  import { formatDate } from '$lib/dayjs';
   export let data: Article[];
 </script>
 
@@ -11,7 +11,7 @@
     <a href="/article/{content.id}" class="link_article">
       <Paper>
         <Title>{content.title}</Title>
-        <Subtitle>{formatTime(content.publishedAt)}</Subtitle>
+        <Subtitle>{formatDate(content.publishedAt)}</Subtitle>
         {#if content.tags}
           <Content>
             {#each content.tags as tag}

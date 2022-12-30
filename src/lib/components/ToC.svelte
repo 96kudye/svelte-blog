@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Drawer, { AppContent, Content } from '@smui/drawer';
+  import Drawer, { Content } from '@smui/drawer';
   import List, { Item, Text } from '@smui/list';
   import Fab, { Icon } from '@smui/fab';
   import { Svg } from '@smui/common';
   import { mdiTableOfContents } from '@mdi/js';
-  import type { ToC } from '../tocFromHtml';
+  import type { ToC } from '../html';
   import MediaQuery from '$lib/MediaQuery.svelte';
-  export let data: ToC;
+  export let data: ToC[];
   const breakpoint = 1600;
   let open = false;
 </script>

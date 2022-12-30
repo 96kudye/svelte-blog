@@ -1,14 +1,13 @@
 <script lang="ts">
   import { AppContent } from '@smui/drawer';
   import type { PageData } from './$types';
-  import { formatTime } from '$lib/dayjs';
-  import { prepareHtml } from '$lib/prepareHtml';
-  import { tocFromHtml } from '$lib/tocFromHtml';
+  import { formatDatetime } from '$lib/dayjs';
   import Tag from '$lib/components/Tag.svelte';
   import ToC from '$lib/components/ToC.svelte';
+  import { tocFromHtml, prepareHtmls } from '$lib/html';
   export let data: PageData;
-  const html = prepareHtml(data.content);
-  const toc = tocFromHtml(data.content);
+  const html = prepareHtmls(data.htmls);
+  const toc = tocFromHtml(html);
 </script>
 
 <svelte:head>
@@ -19,7 +18,7 @@
   <title>{data.title} | Silent Foreign Perspective</title>
 </svelte:head>
 
-{#if data.toc_visible}
+{#if data.toc_visible && toc.length}
   <ToC data={toc} />
 {/if}
 
@@ -34,7 +33,7 @@
         {/each}
       {/if}
       <br />
-      Published at {formatTime(data.publishedAt)}
+      Published at {formatDatetime(data.publishedAt)}
     </h4>
     <div class="article_container">
       {@html html}

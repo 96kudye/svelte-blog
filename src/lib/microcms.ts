@@ -1,4 +1,4 @@
-import { createClient, type MicroCMSQueries, type MicroCMSImage } from "microcms-js-sdk";
+import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 import { MICROCMS_SERVICE_DOMAIN, MICROCMS_API_KEY } from '$env/static/private';
 import { error } from '@sveltejs/kit';
 const client = createClient({
@@ -13,9 +13,14 @@ export type Article = {
   publishedAt: string;
   revisedAt: string;
   title: string;
-  content: string;
+  htmls: HTML[];
   tags?: Tag[];
   toc_visible: boolean;
+};
+export type HTML = {
+  fieldId: 'rich' | 'plane';
+  rich?: string;
+  plane?: string;
 };
 export type BlogResponse = {
   totalCount: number;
