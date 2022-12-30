@@ -15,6 +15,7 @@ export const prepareHtml = (html: string) => {
 
   $('blockquote').wrapInner('<p></p>');
 
+  $('iframe').attr('loading', 'lazy');
   $('iframe').wrap('<div class="video"></div>');
 
   return $('body').html();
