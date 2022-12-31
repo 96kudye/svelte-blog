@@ -4,6 +4,7 @@
   </a>
 </div>
 <slot />
+<div class="footer_container" />
 
 <style>
   .header_container {
@@ -13,5 +14,9 @@
   .header {
     color: inherit;
     text-decoration: none;
+  }
+  .footer_container {
+    text-align: center;
+    margin: 40px 0 40px;
   }
 </style>
