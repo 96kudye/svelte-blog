@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio';
 import { isText } from 'domhandler';
-import hljs from 'highlight.js'
+import hljs from '$lib/hljs'
 import type { HTML } from "./microcms";
 
 const combineHtmls = (htmls: HTML[]): string => {
