@@ -5,19 +5,6 @@ const config: UserConfig = {
   plugins: [sveltekit()],
   build: {
     minify: 'terser',
-    rollupOptions: {
-      output: {
-        manualChunks: (moduleName) => {
-          if (moduleName.includes('highlight')) {
-            return 'highlight'
-          }
-          if (moduleName.includes('node_modules')) {
-            return 'vendor'
-          }
-          return 'main'
-        }
-      }
-    }
   }
 };
 
