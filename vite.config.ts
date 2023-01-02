@@ -8,12 +8,6 @@ const config: UserConfig = {
     rollupOptions: {
       output: {
         manualChunks: (moduleName) => {
-          if (moduleName.includes('smui')) {
-            return 'smui'
-          }
-          if (moduleName.includes('cheerio')) {
-            return 'cheerio'
-          }
           if (moduleName.includes('highlight')) {
             return 'highlight'
           }
