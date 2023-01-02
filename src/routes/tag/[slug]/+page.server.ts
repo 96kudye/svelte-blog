@@ -7,5 +7,3 @@ export const load: PageServerLoad = async ({ params }) => {
     articles: await getArticleList({ filters: `tags[contains]${params.slug}` })
   };
 };
-
-export const prerender = true;
