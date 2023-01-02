@@ -11,7 +11,12 @@ const config = {
     adapter: adapter({
       trailingSlash: 'never',
     }),
-  }
+    vite: {
+      build: {
+        minify: 'terser',
+      }
+    }
+  },
 };
 
 export default config;
