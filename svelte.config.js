@@ -12,11 +12,6 @@ const config = {
       trailingSlash: 'never',
     })
   },
-  vite: {
-    build: {
-      minify: 'terser',
-    }
-  }
 };
 
 export default config;
