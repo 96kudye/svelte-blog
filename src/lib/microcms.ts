@@ -16,6 +16,7 @@ export type Article = {
   htmls: HTML[];
   tags?: Tag[];
   toc_visible: boolean;
+  revised_visible: boolean;
 };
 export type HTML = {
   fieldId: 'rich' | 'plane';

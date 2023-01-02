@@ -25,16 +25,22 @@
 <AppContent>
   <section>
     <h1 class="title">{data.title}</h1>
-    <h4>
+    <div class="article_properties">
       {#if data.tags}
-        Tags:
-        {#each data.tags as tag}
-          <Tag data={tag} />
-        {/each}
+        <h4 class="article_property">
+          Tags:
+          {#each data.tags as tag}
+            <Tag data={tag} />
+          {/each}
+        </h4>
       {/if}
-      <br />
-      Published at {formatDatetime(data.publishedAt)}
-    </h4>
+      <h4 class="article_property">
+        Published at {formatDatetime(data.publishedAt)}
+        {#if data.revised_visible}
+          (Revised at {formatDatetime(data.revisedAt)})
+        {/if}
+      </h4>
+    </div>
     <div class="article_container">
       {@html html}
     </div>
@@ -59,6 +65,13 @@
     .article_container {
       width: 1000px;
     }
+  }
+  .article_properties {
+    margin-top: 30px;
+  }
+  .article_property {
+    margin: 0;
+    height: 36px;
   }
   .title {
     margin-bottom: 0;
