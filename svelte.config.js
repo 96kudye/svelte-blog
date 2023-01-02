@@ -10,13 +10,13 @@ const config = {
   kit: {
     adapter: adapter({
       trailingSlash: 'never',
-    }),
-    vite: {
-      build: {
-        minify: 'terser',
-      }
-    }
+    })
   },
+  vite: {
+    build: {
+      minify: 'terser',
+    }
+  }
 };
 
 export default config;
