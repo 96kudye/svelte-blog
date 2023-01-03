@@ -11,8 +11,20 @@ const config = {
     adapter: adapter({
       trailingSlash: 'never',
       precompress: true,
-      fallback: 'index.html'
-    })
+      fallback: null,
+    }),
+    prerender: {
+      entries: [
+        '/',
+        '/tag/574',
+        '/tag/650',
+        '/tag/943',
+        '/article/1671742007',
+        '/article/1671821156',
+        '/article/1671996780',
+        '/article/1672457431',
+      ]
+    }
   },
 
   env: {
