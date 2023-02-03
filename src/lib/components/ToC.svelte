@@ -7,8 +7,12 @@
   import type { ToC } from '../html';
   import MediaQuery from '$lib/MediaQuery.svelte';
   export let data: ToC[];
-  const breakpoint = 1600;
   let open = false;
+  const breakpoint = 1600;
+  const scrollTo = (id: string) => {
+    document.getElementById(id)!.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollTop = () => window.scroll({ top: 0, behavior: 'smooth' });
 </script>
 
 <MediaQuery query="(min-width: {breakpoint + 1}px)" let:matches>
@@ -17,8 +21,21 @@
       <Drawer>
         <Content>
           <List>
+            <Item
+              on:click={() => {
+                open = false;
+                scrollTop();
+              }}
+            >
+              <Text class="tow_h1">TOP</Text>
+            </Item>
             {#each data as row}
-              <Item href="#{row.id}" on:click={() => (open = false)}>
+              <Item
+                on:click={() => {
+                  open = false;
+                  scrollTo(row.id);
+                }}
+              >
                 <Text class={row.style}>{row.text}</Text>
               </Item>
             {/each}
@@ -35,8 +52,21 @@
       <Drawer variant="modal" bind:open>
         <Content>
           <List>
+            <Item
+              on:click={() => {
+                open = false;
+                scrollTop();
+              }}
+            >
+              <Text class="tow_h1">TOP</Text>
+            </Item>
             {#each data as row}
-              <Item href="#{row.id}" on:click={() => (open = false)}>
+              <Item
+                on:click={() => {
+                  open = false;
+                  scrollTo(row.id);
+                }}
+              >
                 <Text class={row.style}>{row.text}</Text>
               </Item>
             {/each}

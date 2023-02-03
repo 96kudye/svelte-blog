@@ -12,7 +12,6 @@
 
 html,
 body {
-  scroll-behavior: smooth;
   background-color: theme.$surface;
   color: theme.$on-surface;
   @include typography.typography('body1');
