@@ -1,3 +1,10 @@
+<script>
+  import { dev } from '$app/environment';
+  import { inject } from '@vercel/analytics';
+
+  inject({ mode: dev ? 'development' : 'production' });
+</script>
+
 <div class="header_container">
   <a href="/" class="header">
     <div class="mdc-typography--headline2">Silent Foreign Perspective</div>
