@@ -1,6 +1,7 @@
 import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 import { MICROCMS_SERVICE_DOMAIN, MICROCMS_API_KEY } from '$env/static/private';
 import { error } from '@sveltejs/kit';
+import { toISO8601 } from "./dayjs";
 const client = createClient({
   serviceDomain: MICROCMS_SERVICE_DOMAIN,
   apiKey: MICROCMS_API_KEY,
@@ -45,6 +46,7 @@ export const getArticleList = async (queries?: MicroCMSQueries) => {
   }).catch(() => { throw error(404, '404') });
 };
 
+/** @deprecated */
 export const getArticle = async (
   contentId: string,
   queries?: MicroCMSQueries
@@ -54,6 +56,18 @@ export const getArticle = async (
     contentId,
     queries,
   }).catch(() => { throw error(404, '404') });
+};
+
+export const getArticleByUnixtime = async (
+  unixtime: number
+) => {
+  return await client.get<BlogResponse>({
+    endpoint: "articles",
+    queries: {
+      limit: 1,
+      filters: `publishedAt[begins_with]${toISO8601(unixtime).slice(0, -5)}`
+    },
+  }).then(result => result.contents[0]).catch(() => { throw error(404, '404') });
 };
 
 export const getTag = async (contentId: string) => {

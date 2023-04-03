@@ -2,13 +2,13 @@
   import type { Article } from '../microcms';
   import Paper, { Title, Subtitle, Content } from '@smui/paper';
   import Tag from './Tag.svelte';
-  import { formatDate } from '$lib/dayjs';
+  import { formatDate, toUnix } from '$lib/dayjs';
   export let data: Article[];
 </script>
 
 <div class="paper-container">
   {#each data as content}
-    <a href="/article/{content.id}" class="link_article">
+    <a href="/article/{toUnix(content.publishedAt)}" class="link_article">
       <Paper>
         <Title>{content.title}</Title>
         <Subtitle>{formatDate(content.publishedAt)}</Subtitle>
