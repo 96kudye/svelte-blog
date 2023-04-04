@@ -1,7 +1,7 @@
 <script lang="ts">
   import { AppContent } from '@smui/drawer';
   import type { PageData } from './$types';
-  import { formatDatetime } from '$lib/dayjs';
+  import { formatDatetime, toUnix } from '$lib/dayjs';
   import Tag from '$lib/components/Tag.svelte';
   import ToC from '$lib/components/ToC.svelte';
   import { tocFromHtml, prepareHtmls } from '$lib/html';
@@ -11,7 +11,10 @@
 </script>
 
 <svelte:head>
-  <meta name="og:url" content="https://blog.congenial-spirits.com/article/{data.id}" />
+  <meta
+    name="og:url"
+    content="https://blog.congenial-spirits.com/article/{toUnix(data.publishedAt)}"
+  />
   <meta name="og:title" content={data.title} />
   <meta name="og:type" content="article" />
   <meta name="twitter:title" content={data.title} />
