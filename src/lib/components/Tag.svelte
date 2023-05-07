@@ -4,7 +4,7 @@
   export let data: Tag;
 </script>
 
-<a href="/tag/{data.id}" class="link_tag">
+<a href="/tag/{data.route}" class="link_tag">
   <Button><Label>{data.name}</Label></Button>
 </a>
 

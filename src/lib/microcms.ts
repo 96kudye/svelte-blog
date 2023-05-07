@@ -30,6 +30,12 @@ export type BlogResponse = {
   limit: number;
   contents: Article[];
 };
+export type TagResponse = {
+  totalCount: number;
+  offset: number;
+  limit: number;
+  contents: Tag[];
+};
 export type Tag = {
   id: string;
   createdAt: string;
@@ -37,6 +43,7 @@ export type Tag = {
   publishedAt: string;
   revisedAt: string;
   name: string;
+  route: string;
 };
 
 export const getArticleList = async (queries?: MicroCMSQueries) => {
@@ -70,9 +77,22 @@ export const getArticleByUnixtime = async (
   }).then(result => result.contents[0]).catch(() => { throw error(404, '404') });
 };
 
+/** @deprecated */
 export const getTag = async (contentId: string) => {
   return await client.getListDetail<Tag>({
     endpoint: "tags",
     contentId,
   }).catch(() => { throw error(404, '404') });
+};
+
+export const getTagByRoute = async (
+  route: string
+) => {
+  return await client.get<TagResponse>({
+    endpoint: "tags",
+    queries: {
+      limit: 1,
+      filters: `route[equals]${route}`
+    },
+  }).then(result => result.contents[0]).catch(() => { throw error(404, '404') });
 };

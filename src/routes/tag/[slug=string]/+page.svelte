@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <meta name="og:url" content="https://blog.congenial-spirits.com/tag/{data.tag.id}" />
+  <meta name="og:url" content="https://blog.congenial-spirits.com/tag/{data.tag.route}" />
   <meta name="twitter:title" content="Tag: {data.tag.name} | Silent Foreign Perspective" />
   <title>Tag: {data.tag.name} | Silent Foreign Perspective</title>
 </svelte:head>
