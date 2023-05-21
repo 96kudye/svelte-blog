@@ -2,5 +2,5 @@ import { getArticleList } from "$lib/microcms";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {
-  return await getArticleList();
+  return await getArticleList({ limit: 20 })
 };
