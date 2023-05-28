@@ -3,16 +3,16 @@
   import ArticleList from '$lib/components/ArticleList.svelte';
   import Pager from '$lib/components/Pager.svelte';
   export let data: PageData;
-  const currentPage = 1;
+  const currentPage = Math.floor(data.offset / 10) + 1;
   const maxPage = Math.floor(data.totalCount / 10) + 1;
 </script>
 
 <svelte:head>
-  <meta name="og:url" content="https://blog.congenial-spirits.com" />
-  <meta name="og:title" content="Silent Foreign Perspective" />
+  <meta name="og:url" content="https://blog.congenial-spirits.compage/{currentPage}" />
+  <meta name="og:title" content="Page : {currentPage} | Silent Foreign Perspective" />
   <meta name="og:type" content="blog" />
   <meta name="twitter:title" content="Silent Foreign Perspective" />
-  <title>Silent Foreign Perspective</title>
+  <title>Page : {currentPage} | Silent Foreign Perspective</title>
 </svelte:head>
 
 <section>
