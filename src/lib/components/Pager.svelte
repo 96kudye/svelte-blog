@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   import { Svg } from '@smui/common';
   import SegmentedButton, { Segment, Label, Icon } from '@smui/segmented-button';
   import { mdiPageFirst, mdiChevronLeft, mdiChevronRight, mdiPageLast } from '@mdi/js';
@@ -48,35 +49,21 @@
 </script>
 
 <SegmentedButton {segments} let:segment bind:selected>
-  {#if !segment.disabled}
-    <a href="/page/{segment.target}">
-      <Segment
-        {segment}
-        title={segment.name}
-        disabled={segment.disabled}
-        style={'--webkit-appearance: none'}
-      >
-        <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-          <path fill="currentColor" d={segment.icon} />
-        </Icon>
-      </Segment>
-    </a>
-  {:else}
-    <Segment
-      {segment}
-      title={segment.name}
-      disabled={segment.disabled}
-      style={'--webkit-appearance: none'}
-    >
-      {#if segment.name !== 'Current'}
-        <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-          <path fill="currentColor" d={segment.icon} />
-        </Icon>
-      {:else}
-        <Label style="margin: 0 auto;">
-          {segment.label}
-        </Label>
-      {/if}
-    </Segment>
-  {/if}
+  <Segment
+    {segment}
+    title={segment.name}
+    disabled={segment.disabled}
+    style={'--webkit-appearance: none'}
+    on:click={() => goto(`/page/${segment.target}`)}
+  >
+    {#if segment.name !== 'Current'}
+      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+        <path fill="currentColor" d={segment.icon} />
+      </Icon>
+    {:else}
+      <Label style="margin: 0 auto;">
+        {segment.label}
+      </Label>
+    {/if}
+  </Segment>
 </SegmentedButton>
