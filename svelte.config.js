@@ -10,7 +10,10 @@ const config = {
   kit: {
     adapter: adapter({
       trailingSlash: 'never',
-    })
+    }),
+    prerender: {
+      entries: ["*", "/page/1", "/page/2"]
+    }
   },
 };
 
