@@ -4,13 +4,14 @@
   import { mdiPageFirst, mdiChevronLeft, mdiChevronRight, mdiPageLast } from '@mdi/js';
   export let currentPage: number;
   export let maxPage: number;
+  export let parentPath: string = '';
 
-  const leftDisabled = currentPage === 1;
-  const rightDisabled = currentPage === maxPage;
-  const firstTarget = leftDisabled ? undefined : '/page/1';
-  const prevTarget = leftDisabled ? undefined : `/page/${currentPage - 1}`;
-  const nextTarget = rightDisabled ? undefined : `/page/${currentPage + 1}`;
-  const lastTarget = rightDisabled ? undefined : `/page/${maxPage}`;
+  const leftDisabled = currentPage <= 1;
+  const rightDisabled = currentPage >= maxPage;
+  const firstTarget = leftDisabled ? undefined : `${parentPath}/page/1`;
+  const prevTarget = leftDisabled ? undefined : `${parentPath}/page/${currentPage - 1}`;
+  const nextTarget = rightDisabled ? undefined : `${parentPath}/page/${currentPage + 1}`;
+  const lastTarget = rightDisabled ? undefined : `${parentPath}/page/${maxPage}`;
 </script>
 
 <Group variant="outlined">

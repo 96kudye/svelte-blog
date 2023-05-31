@@ -3,8 +3,8 @@
   import ArticleList from '$lib/components/ArticleList.svelte';
   import Pager from '$lib/components/Pager.svelte';
   export let data: PageData;
-  const currentPage = Math.floor(data.offset / 10) + 1;
-  const maxPage = Math.floor(data.totalCount / 10) + 1;
+  const currentPage = data.page;
+  const maxPage = Math.floor(data.articles.totalCount / 10) + 1;
 </script>
 
 <svelte:head>
@@ -16,7 +16,7 @@
 </svelte:head>
 
 <section>
-  <ArticleList data={data.contents} />
+  <ArticleList data={data.articles.contents} />
 </section>
 
 <footer>
