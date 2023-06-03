@@ -14,30 +14,42 @@
   const lastTarget = rightDisabled ? undefined : `${parentPath}/page/${maxPage}`;
 </script>
 
-<Group variant="outlined">
-  <Button variant="outlined" href={firstTarget} disabled={leftDisabled}>
-    <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-      <path fill="currentColor" d={mdiPageFirst} />
-    </Icon>
-  </Button>
-  <Button variant="outlined" href={prevTarget} disabled={leftDisabled}>
-    <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-      <path fill="currentColor" d={mdiChevronLeft} />
-    </Icon>
-  </Button>
-  <Button variant="unelevated">
-    <Label style="margin: 0 auto;">
-      {currentPage}
-    </Label>
-  </Button>
-  <Button variant="outlined" href={nextTarget} disabled={rightDisabled}>
-    <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-      <path fill="currentColor" d={mdiChevronRight} />
-    </Icon>
-  </Button>
-  <Button variant="outlined" href={lastTarget} disabled={rightDisabled}>
-    <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-      <path fill="currentColor" d={mdiPageLast} />
-    </Icon>
-  </Button>
-</Group>
+<footer class="pager">
+  <Group variant="outlined">
+    <Button variant="outlined" href={firstTarget} disabled={leftDisabled}>
+      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+        <path fill="currentColor" d={mdiPageFirst} />
+      </Icon>
+    </Button>
+    <Button variant="outlined" href={prevTarget} disabled={leftDisabled}>
+      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+        <path fill="currentColor" d={mdiChevronLeft} />
+      </Icon>
+    </Button>
+    <Button variant="unelevated">
+      <Label style="margin: 0 auto;">
+        {currentPage}
+      </Label>
+    </Button>
+    <Button variant="outlined" href={nextTarget} disabled={rightDisabled}>
+      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+        <path fill="currentColor" d={mdiChevronRight} />
+      </Icon>
+    </Button>
+    <Button variant="outlined" href={lastTarget} disabled={rightDisabled}>
+      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+        <path fill="currentColor" d={mdiPageLast} />
+      </Icon>
+    </Button>
+  </Group>
+</footer>
+
+<style>
+  footer.pager {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+</style>

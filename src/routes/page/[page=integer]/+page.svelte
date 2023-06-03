@@ -15,24 +15,5 @@
   <title>Page : {currentPage} | Silent Foreign Perspective</title>
 </svelte:head>
 
-<section>
-  <ArticleList data={data.articles.contents} />
-</section>
-
-<footer>
-  <Pager {currentPage} {maxPage} />
-</footer>
-
-<style>
-  section,
-  footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  footer {
-    margin-top: 40px;
-  }
-</style>
+<ArticleList data={data.articles.contents} />
+<Pager {currentPage} {maxPage} />

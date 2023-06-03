@@ -13,25 +13,18 @@
   <title>Tag: {data.tag.name} | Silent Foreign Perspective</title>
 </svelte:head>
 
-<section>
+<div class="tag">
   <h4>Tag: {data.tag.name}</h4>
-  <ArticleList data={data.articles.contents} />
-</section>
+</div>
 
-<footer>
-  <Pager {currentPage} {maxPage} parentPath="/tags/{data.tag.route}" />
-</footer>
+<ArticleList data={data.articles.contents} />
+<Pager {currentPage} {maxPage} parentPath="/tags/{data.tag.route}" />
 
 <style>
-  section,
-  footer {
+  .tag {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  footer {
-    margin-top: 40px;
   }
 </style>

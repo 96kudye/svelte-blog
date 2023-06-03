@@ -6,25 +6,34 @@
   export let data: Article[];
 </script>
 
-<div class="paper-container">
-  {#each data as content}
-    <a href="/article/{toUnix(content.publishedAt)}" class="link_article">
-      <Paper>
-        <Title>{content.title}</Title>
-        <Subtitle>{formatDate(content.publishedAt)}</Subtitle>
-        {#if content.tags}
-          <Content>
-            {#each content.tags as tag}
-              <Tag data={tag} />
-            {/each}
-          </Content>
-        {/if}
-      </Paper>
-    </a>
-  {/each}
-</div>
+<section>
+  <div class="paper-container">
+    {#each data as content}
+      <a href="/article/{toUnix(content.publishedAt)}" class="link_article">
+        <Paper>
+          <Title>{content.title}</Title>
+          <Subtitle>{formatDate(content.publishedAt)}</Subtitle>
+          {#if content.tags}
+            <Content>
+              {#each content.tags as tag}
+                <Tag data={tag} />
+              {/each}
+            </Content>
+          {/if}
+        </Paper>
+      </a>
+    {/each}
+  </div>
+</section>
 
 <style>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .link_article {
     display: block;
     margin-bottom: 15px;
