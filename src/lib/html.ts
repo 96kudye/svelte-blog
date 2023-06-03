@@ -14,7 +14,7 @@ export const prepareHtmls = (htmls: HTML[]): string => {
     const lines = $(elm).text().split('\n');
     const lang = lines.shift()?.slice(1, -1);
     const result = !!lang
-      ? hljs.highlight(lang, lines.join('\n'))
+      ? hljs.highlight(lines.join('\n'), { language: lang })
       : hljs.highlightAuto(lines.join('\n'));
     $(elm).html(result.value);
     $(elm).addClass('hljs');
