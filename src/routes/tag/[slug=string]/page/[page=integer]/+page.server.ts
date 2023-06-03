@@ -17,3 +17,5 @@ export const load: PageServerLoad = async ({ params }) => {
     page: parseInt(params.page)
   };
 };
+
+export const prerender = 'auto';
