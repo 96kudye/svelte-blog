@@ -4,8 +4,7 @@
   import Pager from '$lib/components/Pager.svelte';
   export let data: PageData;
   const currentPage = data.page;
-  const maxPage = Math.floor(data.articles.totalCount / 10) + 1;
-  console.log(maxPage);
+  const maxPage = Math.ceil(data.articles.totalCount / 10);
 </script>
 
 <svelte:head>
