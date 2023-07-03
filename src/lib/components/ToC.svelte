@@ -2,7 +2,6 @@
   import Drawer, { Content } from '@smui/drawer';
   import List, { Item, Text } from '@smui/list';
   import Fab, { Icon } from '@smui/fab';
-  import { Svg } from '@smui/common';
   import { mdiTableOfContents } from '@mdi/js';
   import type { ToC } from '../html';
   import MediaQuery from '$lib/MediaQuery.svelte';
@@ -76,7 +75,7 @@
     </div>
     <div class="toc_button">
       <Fab color="primary" on:click={() => (open = !open)}>
-        <Icon component={Svg} viewBox="2 2 20 20">
+        <Icon tag="svg" viewBox="2 2 20 20">
           <path fill="currentColor" d={mdiTableOfContents} />
         </Icon>
       </Fab>

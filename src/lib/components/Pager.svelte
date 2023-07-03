@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Svg } from '@smui/common';
   import Button, { Group, Label, Icon } from '@smui/button';
   import { mdiPageFirst, mdiChevronLeft, mdiChevronRight, mdiPageLast } from '@mdi/js';
   export let currentPage: number;
@@ -17,12 +16,12 @@
 <footer class="pager">
   <Group variant="outlined">
     <Button variant="outlined" href={firstTarget} disabled={leftDisabled}>
-      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+      <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
         <path fill="currentColor" d={mdiPageFirst} />
       </Icon>
     </Button>
     <Button variant="outlined" href={prevTarget} disabled={leftDisabled}>
-      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+      <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
         <path fill="currentColor" d={mdiChevronLeft} />
       </Icon>
     </Button>
@@ -32,12 +31,12 @@
       </Label>
     </Button>
     <Button variant="outlined" href={nextTarget} disabled={rightDisabled}>
-      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+      <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
         <path fill="currentColor" d={mdiChevronRight} />
       </Icon>
     </Button>
     <Button variant="outlined" href={lastTarget} disabled={rightDisabled}>
-      <Icon component={Svg} style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+      <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
         <path fill="currentColor" d={mdiPageLast} />
       </Icon>
     </Button>
