@@ -18,7 +18,7 @@
 </div>
 
 <ArticleList data={data.articles.contents} />
-<Pager {currentPage} {maxPage} parentPath="/tags/{data.tag.route}" />
+<Pager {currentPage} {maxPage} parentPath="/tag/{data.tag.route}" />
 
 <style>
   .tag {
