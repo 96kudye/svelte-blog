@@ -18,6 +18,7 @@
   <meta name="og:title" content={data.title} />
   <meta name="og:type" content="article" />
   <meta name="twitter:title" content={data.title} />
+  <meta name="description" content="Blog Article: {data.title}" />
   <title>{data.title} | Silent Foreign Perspective</title>
 </svelte:head>
 

@@ -18,23 +18,23 @@
 <footer class="pager">
   <Group variant="outlined">
     {#if leftDisabled}
-      <Button variant="outlined" disabled>
+      <Button variant="outlined" disabled id="First Page" title="First Page">
         <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
           <path fill="currentColor" d={mdiPageFirst} />
         </Icon>
       </Button>
-      <Button variant="outlined" disabled>
+      <Button variant="outlined" disabled id="Prev Page" title="Prev Page">
         <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
           <path fill="currentColor" d={mdiChevronLeft} />
         </Icon>
       </Button>
     {:else}
-      <Button variant="outlined" href={firstTarget}>
+      <Button variant="outlined" href={firstTarget} id="First Page" title="First Page">
         <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
           <path fill="currentColor" d={mdiPageFirst} />
         </Icon>
       </Button>
-      <Button variant="outlined" href={prevTarget}>
+      <Button variant="outlined" href={prevTarget} id="Prev Page" title="Prev Page">
         <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
           <path fill="currentColor" d={mdiChevronLeft} />
         </Icon>
@@ -46,23 +46,23 @@
       </Label>
     </Button>
     {#if rightDisabled}
-      <Button variant="outlined" disabled>
+      <Button variant="outlined" disabled id="Next Page" title="Next Page">
         <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
           <path fill="currentColor" d={mdiChevronRight} />
         </Icon>
       </Button>
-      <Button variant="outlined" disabled>
+      <Button variant="outlined" disabled id="Last Page" title="Last Page">
         <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
           <path fill="currentColor" d={mdiPageLast} />
         </Icon>
       </Button>
     {:else}
-      <Button variant="outlined" href={nextTarget}>
+      <Button variant="outlined" href={nextTarget} id="Next Page" title="Next Page">
         <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
           <path fill="currentColor" d={mdiChevronRight} />
         </Icon>
       </Button>
-      <Button variant="outlined" href={lastTarget}>
+      <Button variant="outlined" href={lastTarget} id="Last Page" title="Last Page">
         <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
           <path fill="currentColor" d={mdiPageLast} />
         </Icon>
