@@ -4,7 +4,7 @@ import { redirect } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ params }) => {
   if (parseInt(params.page) === 1) {
-    throw redirect(308, '/');
+    redirect(308, '/');
   }
   return {
     articles: await getArticleList({ limit: 10, offset: (parseInt(params.page) - 1) * 10 }),

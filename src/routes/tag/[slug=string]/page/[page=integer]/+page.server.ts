@@ -5,7 +5,7 @@ import { redirect } from '@sveltejs/kit';
 export const load: PageServerLoad = async ({ params }) => {
   const tag = await getTagByRoute(params.slug)
   if (parseInt(params.page) === 1) {
-    throw redirect(308, `/tag/${tag.route}`);
+    redirect(308, `/tag/${tag.route}`);
   }
   return {
     tag: tag,

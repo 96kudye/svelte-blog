@@ -50,7 +50,7 @@ export const getArticleList = async (queries?: MicroCMSQueries) => {
   return await client.get<BlogResponse>({
     endpoint: "articles",
     queries
-  }).catch(() => { throw error(404, '404') });
+  }).catch(() => { error(404, '404'); });
 };
 
 /** @deprecated */
@@ -62,7 +62,7 @@ export const getArticle = async (
     endpoint: "articles",
     contentId,
     queries,
-  }).catch(() => { throw error(404, '404') });
+  }).catch(() => { error(404, '404'); });
 };
 
 export const getArticleByUnixtime = async (
@@ -74,7 +74,7 @@ export const getArticleByUnixtime = async (
       limit: 1,
       filters: `publishedAt[begins_with]${toISO8601(unixtime).slice(0, -5)}`
     },
-  }).then(result => result.contents[0]).catch(() => { throw error(404, '404') });
+  }).then(result => result.contents[0]).catch(() => { error(404, '404'); });
 };
 
 /** @deprecated */
@@ -82,7 +82,7 @@ export const getTag = async (contentId: string) => {
   return await client.getListDetail<Tag>({
     endpoint: "tags",
     contentId,
-  }).catch(() => { throw error(404, '404') });
+  }).catch(() => { error(404, '404'); });
 };
 
 export const getTagByRoute = async (
@@ -94,5 +94,5 @@ export const getTagByRoute = async (
       limit: 1,
       filters: `route[equals]${route}`
     },
-  }).then(result => result.contents[0]).catch(() => { throw error(404, '404') });
+  }).then(result => result.contents[0]).catch(() => { error(404, '404'); });
 };
