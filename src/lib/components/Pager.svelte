@@ -5,41 +5,69 @@
   export let maxPage: number;
   export let parentPath: string = '';
 
-  const leftDisabled = currentPage <= 1;
-  const rightDisabled = currentPage >= maxPage;
-  const firstTarget = leftDisabled ? undefined : `${parentPath}/page/1`;
-  const prevTarget = leftDisabled ? undefined : `${parentPath}/page/${currentPage - 1}`;
-  const nextTarget = rightDisabled ? undefined : `${parentPath}/page/${currentPage + 1}`;
-  const lastTarget = rightDisabled ? undefined : `${parentPath}/page/${maxPage}`;
+  $: leftDisabled = currentPage <= 1;
+  $: rightDisabled = currentPage >= maxPage;
+  $: firstTarget = leftDisabled ? undefined : `${parentPath}/page/1`;
+  $: prevTarget = leftDisabled ? undefined : `${parentPath}/page/${currentPage - 1}`;
+  $: nextTarget = rightDisabled ? undefined : `${parentPath}/page/${currentPage + 1}`;
+  $: lastTarget = rightDisabled ? undefined : `${parentPath}/page/${maxPage}`;
+
+  // SMUIの実装上、disabledで上手く消えてくれないのでifで無理やり反応させている
 </script>
 
 <footer class="pager">
   <Group variant="outlined">
-    <Button variant="outlined" href={firstTarget} disabled={leftDisabled}>
-      <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-        <path fill="currentColor" d={mdiPageFirst} />
-      </Icon>
-    </Button>
-    <Button variant="outlined" href={prevTarget} disabled={leftDisabled}>
-      <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-        <path fill="currentColor" d={mdiChevronLeft} />
-      </Icon>
-    </Button>
+    {#if leftDisabled}
+      <Button variant="outlined" disabled>
+        <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+          <path fill="currentColor" d={mdiPageFirst} />
+        </Icon>
+      </Button>
+      <Button variant="outlined" disabled>
+        <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+          <path fill="currentColor" d={mdiChevronLeft} />
+        </Icon>
+      </Button>
+    {:else}
+      <Button variant="outlined" href={firstTarget}>
+        <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+          <path fill="currentColor" d={mdiPageFirst} />
+        </Icon>
+      </Button>
+      <Button variant="outlined" href={prevTarget}>
+        <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+          <path fill="currentColor" d={mdiChevronLeft} />
+        </Icon>
+      </Button>
+    {/if}
     <Button variant="unelevated">
       <Label style="margin: 0 auto;">
         {currentPage}
       </Label>
     </Button>
-    <Button variant="outlined" href={nextTarget} disabled={rightDisabled}>
-      <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-        <path fill="currentColor" d={mdiChevronRight} />
-      </Icon>
-    </Button>
-    <Button variant="outlined" href={lastTarget} disabled={rightDisabled}>
-      <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
-        <path fill="currentColor" d={mdiPageLast} />
-      </Icon>
-    </Button>
+    {#if rightDisabled}
+      <Button variant="outlined" disabled>
+        <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+          <path fill="currentColor" d={mdiChevronRight} />
+        </Icon>
+      </Button>
+      <Button variant="outlined" disabled>
+        <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+          <path fill="currentColor" d={mdiPageLast} />
+        </Icon>
+      </Button>
+    {:else}
+      <Button variant="outlined" href={nextTarget}>
+        <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+          <path fill="currentColor" d={mdiChevronRight} />
+        </Icon>
+      </Button>
+      <Button variant="outlined" href={lastTarget}>
+        <Icon tag="svg" style="width: 1em; height: auto; margin: 0 auto;" viewBox="0 0 24 24">
+          <path fill="currentColor" d={mdiPageLast} />
+        </Icon>
+      </Button>
+    {/if}
   </Group>
 </footer>
 

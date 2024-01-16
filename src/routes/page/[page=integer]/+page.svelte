@@ -3,8 +3,9 @@
   import ArticleList from '$lib/components/ArticleList.svelte';
   import Pager from '$lib/components/Pager.svelte';
   export let data: PageData;
-  const currentPage = data.page;
-  const maxPage = Math.ceil(data.articles.totalCount / 10);
+
+  $: currentPage = data.page;
+  $: maxPage = Math.ceil(data.articles.totalCount / 10);
 </script>
 
 <svelte:head>
