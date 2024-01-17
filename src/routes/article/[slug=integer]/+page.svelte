@@ -6,8 +6,9 @@
   import ToC from '$lib/components/ToC.svelte';
   import { tocFromHtml, prepareHtmls } from '$lib/html';
   export let data: PageData;
-  const html = prepareHtmls(data.htmls);
-  const toc = tocFromHtml(html);
+
+  $: html = prepareHtmls(data.htmls);
+  $: toc = tocFromHtml(html);
 </script>
 
 <svelte:head>
