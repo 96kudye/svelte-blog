@@ -9,9 +9,15 @@
     });}}></script>
 </svelte:head>
 
-<div id="search" />
+<div class="search_container">
+  <div id="search" />
+</div>
 
 <style>
+  .search_container {
+    justify-content: center;
+    margin: 50px;
+  }
   #search {
     width: 100%;
   }
