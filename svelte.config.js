@@ -11,7 +11,19 @@ const config = {
     adapter: adapter({
       trailingSlash: 'never',
       fallback: 'index.html'
-    })
+    }),
+    prerender: {
+      handleHttpError: ({ path, referrer, message }) => {
+        if (
+          path === "/pagefind/pagefind-ui.css" ||
+          path === "/pagefind/pagefind-ui.js"
+        ) {
+          return;
+        }
+
+        throw new Error(message);
+      },
+    },
   },
 };
 

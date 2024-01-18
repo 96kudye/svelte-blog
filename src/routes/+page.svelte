@@ -2,6 +2,7 @@
   import type { PageData } from './$types';
   import ArticleList from '$lib/components/ArticleList.svelte';
   import Pager from '$lib/components/Pager.svelte';
+  import SearchBox from '$lib/components/SearchBox.svelte';
   export let data: PageData;
   const currentPage = 1;
   const maxPage = Math.ceil(data.totalCount / 10);
@@ -16,5 +17,6 @@
   <title>Silent Foreign Perspective</title>
 </svelte:head>
 
+<SearchBox />
 <ArticleList data={data.contents} />
 <Pager {currentPage} {maxPage} />

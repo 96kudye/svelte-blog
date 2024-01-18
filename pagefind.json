@@ -1,0 +1,5 @@
+{
+    "site": "build/article",
+    "output_path": "build/pagefind",
+    "force_language": "ja"
+}
