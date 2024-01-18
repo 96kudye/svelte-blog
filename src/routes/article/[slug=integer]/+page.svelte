@@ -1,7 +1,7 @@
 <script lang="ts">
   import { AppContent } from '@smui/drawer';
   import type { PageData } from './$types';
-  import { formatDatetime, toUnix } from '$lib/dayjs';
+  import { formatDate, formatDatetime, toUnix } from '$lib/dayjs';
   import Tag from '$lib/components/Tag.svelte';
   import ToC from '$lib/components/ToC.svelte';
   import { tocFromHtml, prepareHtmls } from '$lib/html';
@@ -39,10 +39,7 @@
           {/each}
         </h4>
       {/if}
-      <h4
-        class="article_property"
-        data-pagefind-meta="published:{formatDatetime(data.publishedAt)}"
-      >
+      <h4 class="article_property" data-pagefind-meta="date:{formatDate(data.publishedAt)}">
         Published at {formatDatetime(data.publishedAt)}
         {#if data.revised_visible}
           (Revised at {formatDatetime(data.revisedAt)})

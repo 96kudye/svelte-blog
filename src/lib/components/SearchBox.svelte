@@ -27,4 +27,7 @@
       width: 700px;
     }
   }
+  :root {
+    --pagefind-ui-primary: #d505ff;
+  }
 </style>
