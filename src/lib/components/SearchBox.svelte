@@ -1,6 +1,6 @@
 <svelte:head>
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-  <script src="/pagefind/pagefind-ui.js"></script>
+  <!-- <script src="/pagefind/pagefind-ui.js"></script>
   <script>
     if (document.readyState !== 'loading') {
       console.log('document is already ready, just execute code here');
@@ -11,7 +11,11 @@
         new PagefindUI({ element: '#search' });
       });
     }
-  </script>
+  </script> -->
+  <script src="/pagefind/pagefind-ui.js" on:load={() => {
+    console.log('script:load');
+    new PagefindUI({ element: '#search' });
+    } }></script>
 </svelte:head>
 
 <div id="search" />
