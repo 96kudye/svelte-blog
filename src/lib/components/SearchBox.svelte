@@ -15,8 +15,9 @@
 
 <style>
   .search_container {
+    display: flex;
     justify-content: center;
-    margin: 50px;
+    margin-bottom: 20px;
   }
   #search {
     width: 100%;
