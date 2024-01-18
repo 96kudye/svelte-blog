@@ -28,9 +28,9 @@
 {/if}
 
 <AppContent>
-  <section>
+  <section data-pagefind-body>
     <h1 class="title">{data.title}</h1>
-    <div class="article_properties">
+    <div class="article_properties" data-pagefind-ignore>
       {#if data.tags}
         <h4 class="article_property">
           Tags:
@@ -39,7 +39,10 @@
           {/each}
         </h4>
       {/if}
-      <h4 class="article_property">
+      <h4
+        class="article_property"
+        data-pagefind-meta="published:{formatDatetime(data.publishedAt)}"
+      >
         Published at {formatDatetime(data.publishedAt)}
         {#if data.revised_visible}
           (Revised at {formatDatetime(data.revisedAt)})

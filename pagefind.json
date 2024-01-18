@@ -1,5 +1,5 @@
 {
-    "site": "build/article",
+    "site": "build",
     "output_path": "build/pagefind",
     "force_language": "ja"
 }
